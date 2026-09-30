@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f2a1b8">
+<title>Happy Birthday My Dear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#f9c6d3;--bg2:#f2a1b8;--ink:#c2185b;--glow:rgba(255,255,255,.7);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#4a1830;--bg2:#2a0d1c;--ink:#ff8fb8;--glow:rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg1:#4a1830;--bg2:#2a0d1c;--ink:#ff8fb8;--glow:rgba(0,0,0,.4)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{height:100%;margin:0}
+body{background:radial-gradient(circle at 50% 40%,var(--bg1),var(--bg2));font-family:'Pacifico',cursive,system-ui;overflow:hidden;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:manipulation;overscroll-behavior:none;position:fixed;top:0;right:0;bottom:0;left:0;cursor:pointer}
+main{height:100%;display:grid;place-content:center;justify-items:center;text-align:center;padding:0 16px}
+#sp{position:fixed;top:0;right:0;bottom:0;left:0;pointer-events:none;overflow:hidden}
+#sp i{position:absolute;top:-10px;background:#fff;border-radius:50%;opacity:.85;will-change:transform;animation:fall linear infinite}
+@keyframes fall{from{transform:translate3d(0,0,0)}to{transform:translate3d(var(--x),110vh,0)}}
+/* cake */
+.cake{position:relative;width:180px;height:160px;margin-bottom:22px}
+.cake>*{position:absolute}
+.plate{bottom:0;left:-14px;right:-14px;height:3px;background:#fff;border-radius:3px;transform:scaleX(0);animation:grow .6s .1s both ease-out}
+.l{left:0;right:0}
+.l1{bottom:3px;height:34px;border-radius:5px 5px 2px 2px;background:repeating-linear-gradient(0deg,#7b5a52 0 9px,#93716a 9px 13px);transform-origin:bottom;animation:rise .5s .5s both}
+.l2{bottom:37px;height:30px;background:repeating-linear-gradient(0deg,#6f4f48 0 9px,#876660 9px 13px);animation:drop .7s 1.1s both cubic-bezier(.3,1.5,.5,1)}
+.cream{bottom:66px;height:17px;background:#fff;border-radius:9px 9px 3px 3px;transform-origin:center;animation:grow .5s 1.8s both}
+.cream::after{content:"";position:absolute;left:0;right:0;top:12px;height:16px;background:radial-gradient(ellipse 6px 13px at 50% 0,#fff 95%,transparent) 0 0/24px 100% repeat-x}
+.candle{left:calc(50% - 4px);width:8px;bottom:82px;height:38px;border-radius:3px;background:repeating-linear-gradient(45deg,#fff 0 5px,#f06292 5px 10px);transform-origin:bottom;animation:rise .4s 2.3s both}
+.flame{left:calc(50% - 7px);bottom:118px;width:14px;height:24px;animation:pop .4s 2.7s both;transform-origin:50% 100%}
+.fl{display:block;width:100%;height:100%;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;background:radial-gradient(circle at 50% 72%,#fffbe0,#ffb300 58%,#ff7043);box-shadow:0 0 18px 6px rgba(255,190,60,.55);transform-origin:50% 100%;transition:transform .3s,opacity .3s;animation:flick .16s infinite alternate}
+.cake.off .fl{animation:none;transform:scale(0);opacity:0}
+@keyframes flick{from{transform:rotate(-4deg) scale(1,1)}to{transform:rotate(4deg) scale(.92,1.08)}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes rise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes drop{from{transform:translateY(-120px);opacity:0}to{transform:none;opacity:1}}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+/* text */
+h1{margin:0;font-weight:400;font-size:clamp(1.9rem,8.4vw,3.5rem);color:var(--ink);text-shadow:2px 2px 5px var(--glow);min-height:1.5em;max-width:92vw;line-height:1.25}
+#t::after{content:none;display:inline-block;width:2px;height:.9em;background:var(--ink);margin-left:3px;vertical-align:-.05em;animation:bl .7s steps(1) infinite}
+#t.done::after{display:none}
+@keyframes bl{50%{opacity:0}}
+.w{display:inline-block;white-space:nowrap}.c{visibility:hidden}.c.v{visibility:visible}
+.hint{position:fixed;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);margin:0;font-size:.95rem;color:var(--ink);opacity:0;pointer-events:none;transition:opacity 1s}
+.fin .hint{opacity:.75}
+/* photo frames */
+.frame{position:fixed;--w:clamp(78px,21vw,136px);width:var(--w);height:calc(var(--w)*1.3333);-webkit-appearance:none;appearance:none;margin:0;touch-action:manipulation;will-change:transform;padding:3px;border:0;border-radius:13px;background:linear-gradient(135deg,#fff3c4,#e2ab3f 45%,#fff0b8 70%,#c98f26);box-shadow:0 10px 22px rgba(150,20,80,.32);cursor:pointer;transform:rotate(var(--r));opacity:0;animation:fly 1s var(--d) cubic-bezier(.2,1.3,.4,1) both,bob 3.8s calc(var(--d) + 1s) ease-in-out infinite alternate;z-index:5}
+.frame .mat{display:block;height:100%;padding:4px;box-sizing:border-box;background:#fffaf5;border-radius:10px}
+.frame img{width:100%;height:100%;object-fit:cover;border-radius:6px;display:block}
+.frame::after{content:"\2665\FE0E";position:absolute;right:-7px;top:-9px;width:22px;height:22px;display:grid;place-items:center;font:14px/1 system-ui;color:#fff;background:#e91e63;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.tl{top:calc(env(safe-area-inset-top,0px) + 16px);left:14px;--r:-7deg;--fx:-90px;--fy:-90px}
+.tr{top:calc(env(safe-area-inset-top,0px) + 16px);right:14px;--r:6deg;--fx:90px;--fy:-90px}
+.bl{bottom:calc(env(safe-area-inset-bottom,0px) + 44px);left:14px;--r:5deg;--fx:-90px;--fy:90px}
+.br{bottom:calc(env(safe-area-inset-bottom,0px) + 44px);right:14px;--r:-6deg;--fx:90px;--fy:90px}
+@keyframes fly{from{transform:translate(var(--fx),var(--fy)) rotate(var(--r)) scale(.2);opacity:0}to{transform:rotate(var(--r));opacity:1}}
+@keyframes bob{from{transform:rotate(var(--r))}to{transform:translate3d(0,-6px,0) rotate(var(--r))}}
+/* click effects */
+.p{position:fixed;left:0;top:0;pointer-events:none;z-index:40;will-change:transform,opacity;font-family:system-ui,sans-serif;line-height:1;animation:pf 1s ease-out forwards}
+@keyframes pf{from{transform:translate(-50%,-50%) scale(.3);opacity:1}to{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(var(--rot)) scale(1);opacity:0}}
+.ring{position:fixed;width:12px;height:12px;margin:-6px 0 0 -6px;border:2px solid #fff;border-radius:50%;pointer-events:none;z-index:40;animation:rg .65s ease-out forwards}
+@keyframes rg{to{transform:scale(8);opacity:0}}
+.lb{position:fixed;top:0;right:0;bottom:0;left:0;display:none;place-items:center;background:rgba(60,10,35,.72);z-index:60}
+.lb.on{display:grid;animation:fi .25s}
+.lb .fr{padding:6px;border-radius:16px;background:linear-gradient(135deg,#fff3c4,#e2ab3f 45%,#fff0b8 70%,#c98f26);animation:pop .4s cubic-bezier(.2,1.4,.4,1)}
+.lb img{display:block;max-width:min(84vw,420px);max-height:70vh;max-height:70dvh;border:6px solid #fffaf5;border-radius:10px}
+@keyframes fi{from{opacity:0}}
+.frame:focus:not(:focus-visible){outline:none}
+@media (max-height:500px){.frame{--w:62px}.cake{transform:scale(.7);margin-bottom:0}h1{font-size:2rem}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<div id="sp" aria-hidden="true"></div>
+<main>
+  <div class="cake" id="cake" aria-label="Birthday cake, tap to blow out the candle" role="img">
+    <span class="plate"></span><span class="l l1"></span><span class="l l2"></span><span class="l cream"></span>
+    <span class="candle"></span><span class="flame"><span class="fl"></span></span>
+  </div>
+  <h1><span id="t" aria-hidden="true"></span><span style="position:absolute;left:-9999px">Happy Birthday My Dear!</span></h1>
+</main>
+<p class="hint">tap anywhere &hearts; tap the candle &amp; the photos</p>
+
+<button class="frame tl" style="--d:4.4s" aria-label="Open photo 1"><span class="mat"><img alt="Photo 1" src="photo1.jpg"></span></button>
+<button class="frame tr" style="--d:4.7s" aria-label="Open photo 2"><span class="mat"><img alt="Photo 2" src="photo2.jpg"></span></button>
+<button class="frame bl" style="--d:5.0s" aria-label="Open photo 3"><span class="mat"><img alt="Photo 3" src="photo3.jpg"></span></button>
+<button class="frame br" style="--d:5.3s" aria-label="Open photo 4"><span class="mat"><img alt="Photo 4" src="photo4.jpg"></span></button>
+
+<div class="lb" id="lb"><div class="fr"><img id="lbi" alt="Photo"></div></div>
+
+<script>
+var msg='Happy Birthday My Dear!',t=document.getElementById('t'),k=0,
+    ck=document.getElementById('cake'),lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),
+    sp=document.getElementById('sp');
+var N=innerWidth<600?26:44;for(var i=0;i<N;i++){var d=document.createElement('i'),z=3+Math.random()*4;
+  d.style.cssText='left:'+Math.random()*100+'%;width:'+z+'px;height:'+z+'px;animation-duration:'+(6+Math.random()*7)+'s;animation-delay:-'+Math.random()*12+'s;--x:'+((Math.random()-.5)*90)+'px';
+  sp.appendChild(d)}
+var cs=[];msg.split(' ').forEach(function(w,j){var s=document.createElement('span');s.className='w';
+  for(var q=0;q<w.length;q++){var c=document.createElement('span');c.className='c';c.textContent=w[q];s.appendChild(c);cs.push(c)}
+  t.appendChild(s);if(j<3)t.appendChild(document.createTextNode(' '))});
+setTimeout(function n(){cs[k++].className='c v';if(k<cs.length)setTimeout(n,95);else document.body.className='fin'},3200);
+
+var cols=['#e91e63','#ff5c8a','#fff','#ffb300','#c2185b'],chars=['\u2665\uFE0E','\u2764\uFE0E','\u2726','\u273F\uFE0E','\u2665\uFE0E'];
+function burst(x,y,n){
+  if(document.querySelectorAll('.p').length>90)return;
+  var r=document.createElement('div');r.className='ring';r.style.left=x+'px';r.style.top=y+'px';
+  document.body.appendChild(r);setTimeout(function(){r.remove()},700);
+  for(var i=0;i<n;i++){
+    var e=document.createElement('span'),a=i/n*6.283+Math.random()*.5,m=50+Math.random()*90;
+    e.className='p';e.textContent=chars[i%chars.length];
+    e.style.cssText='left:'+x+'px;top:'+y+'px;color:'+cols[i%cols.length]+';font-size:'+(13+Math.random()*16)+'px;--dx:'+Math.cos(a)*m+'px;--dy:'+(Math.sin(a)*m-20)+'px;--rot:'+((Math.random()-.5)*120)+'deg';
+    document.body.appendChild(e);(function(el){setTimeout(function(){el.remove()},1050)})(e)}}
+
+addEventListener('pointerdown',function(e){
+  if(lb.classList.contains('on')){lb.classList.remove('on');return}
+  var f=e.target.closest('.frame');
+  if(f){lbi.src=f.querySelector('img').src;lb.classList.add('on')}
+  if(e.target.closest('.cake')&&!ck.classList.contains('off')){
+    ck.classList.add('off');
+    setTimeout(function(){ck.classList.remove('off');var b=ck.getBoundingClientRect();burst(b.left+b.width/2,b.top+20,28)},1400)}
+  burst(e.clientX,e.clientY,f?8:12)},{passive:true});
+</script>
+</body>
+</html>
